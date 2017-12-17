@@ -1,0 +1,61 @@
+# !/usr/bin/python3
+from tkinter import *
+root=Tk()
+menubar = Menu(root)
+
+#MainButtonFrame=Frame(width=650, height=250, bg='white')
+#MainButtonFrame.pack_propagate(0)
+#MainButtonFrame.pack(fill=BOTH, side= TOP)
+
+
+TestFrame = Frame(width=300, height=500, bg='white')
+TestFrame.pack_propagate(0)
+TestFrame.pack(fill=BOTH,expand=TRUE)
+
+TestFrame2 = Frame(width=300, height=500, bg='white')
+TestFrame2.pack_propagate(0)
+TestFrame2.pack(fill=BOTH,expand=TRUE)
+
+FirstFrame = Frame(width=300, height=500, bg='white')
+
+SecondFrame = Frame(width=300, height=500, bg='white')
+
+HTMLFrame = Frame(width=450, height=50,bg='white')
+HTMLFrame.pack_propagate(0)
+HTMLFrame.pack(fill=BOTH,side= BOTTOM)
+
+def center_window(width=300, height=200):
+    # get screen width and height
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+
+    # calculate position x and y coordinates
+    x = (screen_width/2) - (width/2)
+    y = (screen_height/2) - (height/2)
+    root.geometry('%dx%d+%d+%d' % (width, height,x, y))
+
+    def Section():
+        toplevel = Toplevel(width=450, height=580, bg='white')
+
+        # SecondFrame.pack_propagate(0)
+        # SecondFrame.place( anchor="w", relx=.5, rely=.63)
+
+        CreatedCourses = Text(toplevel, borderwidth=0)
+        CreatedCourses.insert(INSERT, "Created Courses")
+        CreatedCourses.place(relx=.1, rely=.18, height=30, width=150)
+
+        Lb1 = Listbox(toplevel)
+        Lb1.insert(1, "")
+        Lb1.insert(2, "")
+        Lb1.insert(3, "")
+        Lb1.insert(4, "")
+        Lb1.insert(5, "")
+        Lb1.insert(6, "")
+        Lb1.place(relx=.1, rely=.25, height=250, width=200)
+
+        Add = Button(toplevel, text='Add Section', command=CallCreateNewCourse)
+        Add.place(relx=.8, rely=.5, anchor="center", height=35, width=95)
+
+        Add = Button(toplevel, text='Select Section')
+        Add.place(relx=.8, rely=.4, anchor="center", height=35, width=95)
+        toplevel.resizable(0, 0)
