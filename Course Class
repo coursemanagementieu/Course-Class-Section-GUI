@@ -1,0 +1,67 @@
+from tkinter import *
+from sqlite3 import *
+import db_fonk
+import csv
+
+connectDatabase = connect("cms.db")
+db_cursor = connectDatabase.cursor()
+root=Tk()
+menubar = Menu(root)
+
+class course:
+
+    def __init__(self,courseName,courseCode,semesterCode,sectionCode,refBookName,syllabus):
+        self.courseName = courseName
+        self.courseCode = courseCode
+        self.semesterName=semesterName
+        self.sectionName= sectionName
+        self.refBookName= refBookName
+        self.syllabus=    syllabus
+
+
+    def setCourseName(self, name):
+        self.courseName = name
+
+    def setCourseCode(self,code):
+        self.courseCode = code
+
+    def setSemesterCode(self,semesterCode):
+        self.semesterCode=semesterCode
+
+    def setSectionCode(self,code):
+
+    def setRefBookName(self,name):
+
+    def getCourseName(self,name):
+        return self.courseName
+
+    def getCourseCode(self,code):
+        return self.coursCode
+
+    def getSemesterCode(self,code):
+        return self.semesterCode
+
+    def getSectionCode(self,code):
+        return self.sectionCode
+
+    def getRefBookName(self,Name):
+        return self.refBookName
+
+    def getsyllabus(self):
+        return self.syllabus
+
+    def insertCourseInDatabase(self,courseCode):
+        self.courseCode = db_fonk.insert_Course(self.courseName, self.courseCode, self.semesterCode,self.sectionCode,self.refBookName,self.syllabus)
+        db_fonk.insert_Coursein(semID, courseID, self.sectionID)
+        db_fonk.save_changes()
+
+    def displayCourse(self):
+        print("Course Name:",self.getCourseName())
+        print("Course Code:", self.getCourseCode())
+        print("Section Code::",self.getSectionCode())
+        print("Semester Code:",self.getSemesterCode())
+        print("RefBook:", self.getRefBookName())
+        print("Syllabus:",self.getsyllabus())
+        
+        
+        
