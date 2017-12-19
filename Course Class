@@ -10,14 +10,15 @@ menubar = Menu(root)
 
 class course:
 
-    def __init__(self,courseName,courseCode,semesterCode,sectionCode,refBookName,syllabus):
+    def __init__(self,courseName="Empty",courseCode="Empty",courseId="Empty",courseBook="Empty",refBookName="Empty",syllabus="Empty"):
         self.courseName = courseName
         self.courseCode = courseCode
-        self.semesterName=semesterName
-        self.sectionName= sectionName
+        self.courseId   = None
+        self.courseBook = courseBook
         self.refBookName= refBookName
         self.syllabus=    syllabus
-
+ 
+def insertCourseInDatabase(self,courseCode,courseId):
 
     def setCourseName(self, name):
         self.courseName = name
@@ -25,10 +26,10 @@ class course:
     def setCourseCode(self,code):
         self.courseCode = code
 
-    def setSemesterCode(self,semesterCode):
-        self.semesterCode=semesterCode
+    def setCourseId(self,courseId):
+        self.courseId=courseId
 
-    def setSectionCode(self,code):
+    def setCourseBook(self,name):
 
     def setRefBookName(self,name):
 
@@ -38,10 +39,10 @@ class course:
     def getCourseCode(self,code):
         return self.coursCode
 
-    def getSemesterCode(self,code):
+    def getCourseId(self,code):
         return self.semesterCode
 
-    def getSectionCode(self,code):
+    def getCourseBook(self,name):
         return self.sectionCode
 
     def getRefBookName(self,Name):
@@ -50,16 +51,16 @@ class course:
     def getsyllabus(self):
         return self.syllabus
 
-    def insertCourseInDatabase(self,courseCode):
-        self.courseCode = db_fonk.insert_Course(self.courseName, self.courseCode, self.semesterCode,self.sectionCode,self.refBookName,self.syllabus)
-        db_fonk.insert_Coursein(semID, courseID, self.sectionID)
+    def insertCourseInDatabase(self,courseCode,courseId):
+        self.courseCode = db_fonk.insert_Course(self.courseName, self.courseCode, self.courseId,self.courseBook,self.refBookName,self.syllabus)
+        db_fonk.insert_Coursein(courseCode, courseName, self.courseId)
         db_fonk.save_changes()
 
     def displayCourse(self):
         print("Course Name:",self.getCourseName())
         print("Course Code:", self.getCourseCode())
-        print("Section Code::",self.getSectionCode())
-        print("Semester Code:",self.getSemesterCode())
+        print("Course Id:",self.getCourseId())
+        print("Course Book:",self.getCourseBook())
         print("RefBook:", self.getRefBookName())
         print("Syllabus:",self.getsyllabus())
         
